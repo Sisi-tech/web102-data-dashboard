@@ -1,36 +1,47 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function List() {
+function List({ searchValue, setSearchValue }) {
   const [breweries, setBreweries] = useState(null);
-  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const URL = `https://api.openbrewerydb.org/v1/breweries/search?query=${search}&per_page=16`;
-        const response = await axios.get(URL);
-        setBreweries(response.data);
-        console.log(response);
-      } catch (error) {
-        console.error("Error fetching data: ", error)
-      }
+        setLoading(true);
+        try {
+            const URL = `https://api.openbrewerydb.org/v1/breweries/search?query=${searchValue}&per_page=16`;
+            const response = await axios.get(URL);
+            setBreweries(response.data);
+            console.log(response);
+        } catch (error) {
+            console.error("Error fetching data: ", error)
+        } finally {
+            setLoading(false);
+        }
     };
-    fetchData();
-  }, [search]);
+    if (searchValue) {
+        fetchData();
+    }
+  }, [searchValue]);
 
-  const handleInput = (e) => {
-    setSearch(e.target.value)
+  const handleInputChange = (e) => {
+    let text = e.target.value;
+    text = text.charAt(0).toUpperCase() + text.slice(1);
+    setSearchValue(text);
+  }
+
+  const handleSearch = () => {
+    setSearchValue(searchValue);
   }
 
   return (
     <div className='flex flex-col items-center justify-center h-auto pb-10'>
         <div className='flex gap-4'>
-            <input type='text' value={search} onChange={handleInput} className='pl-2 p-1 text-xl rounded-md' />
-            <button type="button" className='text-white'>Search</button>
+            <input type='text' value={searchValue} onChange={handleInputChange} className='pl-2 p-1 text-xl rounded-md' />
+            <button type="button" onClick={handleSearch} className='text-white bg-purple-700 hover:bg-purple-900 font-bold py-2 px-4 rounded-full border-2 border-purple-100/50' >Search</button>
         </div>
-        <div className='flex flex-col justify-center items-center pt-8 gap-6 w-1/2'>
-            <div className=' text-gray-100 grid grid-cols-6 text-center'>
+        <div className='flex flex-col justify-center pt-8 gap-6 w-1/2'>
+            <div className=' text-gray-100 grid grid-cols-6 text-center text-xl'>
                 <p>Name</p>
                 <p>Type</p>
                 <p>City</p>
