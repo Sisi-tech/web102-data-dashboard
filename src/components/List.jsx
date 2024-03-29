@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function List({ searchValue, setSearchValue }) {
+
+function List({ searchValue, setSearchValue, setTopBrewery }) {
   const [breweries, setBreweries] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -13,6 +14,9 @@ function List({ searchValue, setSearchValue }) {
             const response = await axios.get(URL);
             setBreweries(response.data);
             console.log(response);
+            if (response.data && response.data.length > 0) {
+                setTopBrewery(response.data[0]);
+            }
         } catch (error) {
             console.error("Error fetching data: ", error)
         } finally {

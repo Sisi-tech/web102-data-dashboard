@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+  const [topBrewery, setTopBrewery] = useState(null);
 
   return (
     <div className="min-h-screen min-w-full bg-[url('./assets/sky.jpg')] bg-cover grid grid-cols-5 sm:grid-cols-5 pt-0" >
@@ -14,12 +15,14 @@ function App() {
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
       <div className='flex flex-col items-center col-span-3 sm:col-span-4 pt-20 pl-20 gap-6'>
-        <div className='flex gap-4'>
-          <Card info="123" label="Top One"/>
-          <Card info="123" label="Top One"/>
-          <Card info="123" label="Top One"/>
+        {topBrewery && (
+          <div className='flex gap-4'>
+            <Card info={topBrewery.name} label="Top One"/>
+            <Card info={topBrewery.city} label="City"/>
+            <Card info="&#128509;" label={topBrewery.country}/>
         </div>
-        <List searchValue={searchValue} setSearchValue={setSearchValue} />
+        )}
+        <List searchValue={searchValue} setSearchValue={setSearchValue} setTopBrewery={setTopBrewery} />
       </div>
     </div>
   )
