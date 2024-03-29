@@ -32,6 +32,7 @@ Time spent: 4 hrs
   </div>
 
 ## GIF
+https://submissions.us-east-1.linodeobjects.com/web102/b808KofD.gif
 
 ## License
 
