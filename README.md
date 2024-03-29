@@ -20,7 +20,8 @@ Time spent: 4 hrs
 </ul>
 <h2>The following **additional** features are implemented:</h2>
 <li>* [ ] List anything else that you added to improve the site's functionality!</li>
-## Video Walkthrough
+
+<h2>Video Walkthrough</h2>
 <div>
     <a href="https://www.loom.com/share/a417158585224a6b8a8b59b820a105c1">
       <p>Vite + React - 28 March 2024 - Watch Video</p>
