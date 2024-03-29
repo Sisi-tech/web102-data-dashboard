@@ -40,7 +40,7 @@ function List({ searchValue, setSearchValue }) {
             <input type='text' value={searchValue} onChange={handleInputChange} className='pl-2 p-1 text-xl rounded-md' />
             <button type="button" onClick={handleSearch} className='text-white bg-purple-700 hover:bg-purple-900 font-bold py-2 px-4 rounded-full border-2 border-purple-100/50' >Search</button>
         </div>
-        <div className='flex flex-col justify-center pt-8 gap-6 w-1/2'>
+        <div className='flex flex-col justify-center pt-8 gap-6'>
             <div className=' text-gray-100 grid grid-cols-6 text-center text-xl'>
                 <p>Name</p>
                 <p>Type</p>
