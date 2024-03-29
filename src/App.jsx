@@ -14,7 +14,7 @@ function App() {
         <Header searchValue={searchValue}/>
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
-      <div className='flex flex-col items-center col-span-3 sm:col-span-4 pt-20 pl-20 gap-6'>
+      <div className='flex flex-col items-center col-span-3 sm:col-span-4 pt-10 pl-10 gap-6'>
         {topBrewery && (
           <div className='flex gap-4'>
             <Card info={topBrewery.name} label="Top One"/>

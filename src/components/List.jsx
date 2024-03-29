@@ -39,7 +39,7 @@ function List({ searchValue, setSearchValue, setTopBrewery }) {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center h-auto pb-10 bg-purple-200/20 p-10 rounded-xl'>
+    <div className='flex flex-col items-center justify-center h-auto pb-10 bg-purple-200/20 p-10 rounded-xl mr-6'>
         <div className='flex gap-4'>
             <input type='text' value={searchValue} onChange={handleInputChange} className='pl-2 p-1 text-xl rounded-md' />
             <button type="button" onClick={handleSearch} className='text-white bg-purple-700 hover:bg-purple-900 font-bold py-2 px-4 rounded-full border-2 border-purple-100/50' >Search</button>
