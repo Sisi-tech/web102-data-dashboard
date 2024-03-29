@@ -9,7 +9,7 @@ function App() {
   const [topBrewery, setTopBrewery] = useState(null);
 
   return (
-    <div className="min-h-screen min-w-full bg-[url('./assets/sky.jpg')] bg-cover grid grid-cols-5 sm:grid-cols-5 pt-0" >
+    <div className="min-h-screen min-w-full bg-[url('./assets/sky.jpg')] bg-cover grid grid-cols-5 sm:grid-cols-5 pt-0 pl-4 pr-4" >
       <div className='bg-purple-200/20 h-full col-span-2 sm:col-span-1 pt-20'>
         <Header searchValue={searchValue}/>
         <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
